@@ -13,9 +13,11 @@ export class StrengthPipe implements PipeTransform {
 
       return value + ' (strong)';
 
-    } else {
+    } else  {
       return value + ' (strongest)'
-    }
+    } 
+
+    
   }
 
 }

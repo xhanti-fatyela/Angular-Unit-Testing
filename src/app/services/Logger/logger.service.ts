@@ -7,14 +7,15 @@ export class LoggerService {
   
   messages: string[] = []
 
-  constructor(){
-
-  
-  }
 
   log(message: string){
     
      this.messages.push(message)
+  }
+
+  clear() {
+
+    this.messages = []
   }
 
 }

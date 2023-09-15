@@ -13,6 +13,13 @@ describe('StrengthPipe', () => {
 
   })
 
+  it('should display strong if 10 is passed as a value', () => {
+    
+    const pipe = new StrengthPipe();
+    expect(pipe.transform(10)).toEqual('10 (strong)')
+
+  })
+
   it('should display strongest if 20 is passed as a value', () => {
     
     const pipe = new StrengthPipe();
