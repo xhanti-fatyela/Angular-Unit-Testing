@@ -5,13 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StrengthPipe } from './pipes/Strength/strength.pipe';
 import { PostsComponent } from './components/posts/posts.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { PostComponent } from './components/post/post.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     StrengthPipe,
-    PostsComponent
+    PostsComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,

@@ -34,21 +34,22 @@ describe('Posts Component', () => {
     })
     describe('delete method', () => {
 
-        it('should delete the selected Post from the posts', () => {
+        beforeEach(() => {
+          
             mockPostService.deletePosts.and.returnValue(of(true))
-            
             component.posts = POSTS;
-            component.delete(POSTS[1]);
 
-        expect(component.posts.length).toBe(2);
+        })
+
+        it('should delete the selected Post from the posts', () => {
+         
+         component.delete(POSTS[1]);
+         expect(component.posts.length).toBe(2);
             
         })
 
         it('should delete the actual selected Post from Posts', () => {
            
-            mockPostService.deletePosts.and.returnValue(of(true))
-
-            component.posts = POSTS;
             component.delete(POSTS[1]);
 
             for (let post of component.posts) {
@@ -59,15 +60,19 @@ describe('Posts Component', () => {
         })
 
         it('should call the delete method in post Service only once', () => {
-            mockPostService.deletePosts.and.returnValue(of(true))
-            
-            component.posts = POSTS;
-            component.delete(POSTS[1]);
 
-        expect(mockPostService.deletePosts).toHaveBeenCalledTimes(1);
+            component.delete(POSTS[1]);
+            expect(mockPostService.deletePosts).toHaveBeenCalledTimes(1);
             
         })
+        
+        it('should call the delete method in post Service twice', () => {
 
+            component.delete(POSTS[1]);
+            component.delete(POSTS[1]);
+            expect(mockPostService.deletePosts).toHaveBeenCalledTimes(2);
+            
+        })
         
 
     })
